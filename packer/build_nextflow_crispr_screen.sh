@@ -12,7 +12,7 @@ sudo yum update -y
 # Install Java and Nextflow
 sudo yum install -y java-1.8.0-openjdk
 curl -fsSL get.nextflow.io | bash
-mv nextflow /usr/local/bin/
+sudo mv nextflow /usr/local/bin/
 
 # Install utilities
 sudo yum install -y git tmux unzip wget bzip2
