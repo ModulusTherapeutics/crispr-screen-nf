@@ -7,7 +7,7 @@
 # Copyright (C) 2022 Matthew Stone <matthew.stone@modulustherapeutics.com>
 # Distributed under terms of the MIT license.
 
-../nextflow run main.nf \
+nextflow run main.nf \
     -c nextflow.config \
     -profile testing \
     -w work/ \

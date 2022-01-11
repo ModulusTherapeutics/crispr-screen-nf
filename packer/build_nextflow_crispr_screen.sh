@@ -12,15 +12,10 @@ sudo yum update -y
 # Install Java and Nextflow
 sudo yum install -y java-1.8.0-openjdk
 curl -fsSL get.nextflow.io | bash
+mv nextflow /usr/local/bin/
 
 # Install utilities
 sudo yum install -y git tmux unzip wget bzip2
-
-# Install and start docker
-sudo amazon-linux-extras install -y docker
-sudo usermod -a -G docker ec2-user
-newgrp docker
-sudo systemctl start docker
 
 # Install AWS CLI
 wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
