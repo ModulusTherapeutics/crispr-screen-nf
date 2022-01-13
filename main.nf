@@ -157,7 +157,7 @@ workflow {
     mageckflute_rra(mageck_rra.out.geneSummary, mageck_rra.out.sgrnaSummary, params.scale_cutoff, params.organism, 'mageckflute/rra')
 
     // Process Mageck Flute MLE
-    mageckflute_mle(mageck_mle.out.geneSummary, Channel.fromPath(params.depmap_effect), Channel.fromPath(params.depmap_samples), 'mageckflute/mle')
+    // mageckflute_mle(mageck_mle.out.geneSummary, Channel.fromPath(params.depmap_effect), Channel.fromPath(params.depmap_samples), 'mageckflute/mle')
 
     // Export Mageck RRA as JSON via MAGeCKVispr
     mageckvispr_export_rra(
@@ -166,12 +166,12 @@ workflow {
         "mageck/rra/vispr"
     )
 
-    // Export Mageck RRA as JSON via MAGeCKVispr
-    mageckvispr_export_mle(
-        mageck_mle.out.geneSummary,
-        mageck_rra.out.normCounts,
-        "mageck/mle/vispr"
-    )
+    // Export Mageck MLE as JSON via MAGeCKVispr
+    // mageckvispr_export_mle(
+    //     mageck_mle.out.geneSummary,
+    //     mageck_rra.out.normCounts,
+    //     "mageck/mle/vispr"
+    // )
     
     // Process : Rmd To Pdf
     // Rmd_Pdf_Treatment(mageck_count_treatment.out.r, 'mageck/count/treatment/pdf')
