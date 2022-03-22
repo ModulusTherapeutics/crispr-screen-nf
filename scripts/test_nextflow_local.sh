@@ -1,11 +1,13 @@
 #!/bin/bash
 #
-# test_nextflow.sh
+# test_nextflow_local.sh
 #
 # Test pipeline locally
 #
 # Copyright (C) 2022 Matthew Stone <matthew.stone@modulustherapeutics.com>
 # Distributed under terms of the MIT license.
+
+mkdir -p logs
 
 nextflow run main.nf \
     -c nextflow.config \
@@ -15,7 +17,7 @@ nextflow run main.nf \
     --treatment_fastq test_data/test1.fastq.gz,test_data/test3.fastq.gz \
     --control_fastq test_data/test2.fastq.gz \
     --library test_data/library.csv \
-    --output output \
+    --output local_output \
     --output_prefix OUTPUT \
     --organism hsa \
     --scale_cutoff 1 \
@@ -23,4 +25,8 @@ nextflow run main.nf \
     --depmap_effect test_data/Achilles_gene_effect.csv \
     --depmap_samples test_data/sample_info.csv \
     --trim_5_prime 0 \
-    --trim_3_prime 0
+    --trim_3_prime 0 \
+    -with-report logs/local_report.html \
+    -with-trace logs/local_trace.txt \
+    -with-timeline logs/local_timeline.html \
+    -with-dag logs/local_flowchart.png
